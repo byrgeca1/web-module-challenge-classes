@@ -50,7 +50,7 @@ class Person {
     this.stomach = [];
   }
   eat(someFood){
-    if (this.stomach.length <= 10){
+    if (this.stomach.length < 10){
       this.stomach.push(someFood);
     }
   }
@@ -96,18 +96,17 @@ class Car {
   }
   drive (miles){
     const distance = this.tank * this.milesPerGallon;
-    if (miles <= dist){
+    if (miles <= distance){
       this.odometer = this.odometer + miles;
       this.tank = this.tank - (miles/this.milesPerGallon);
     } else{
       this.odometer = this.odometer + distance;
       this.tank = 0;
-      return `I ran out of fwel at ${this.odometer} miles.`;
+      return `I ran out of fuel at ${this.odometer} miles.`;
     }
   }
 }
-Car.fill();
-Car.drive();
+
 
 /*
   TASK 3
@@ -123,9 +122,22 @@ Car.drive();
 */
 
 class Lambdasian {
-  
+  constructor(obj){
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
+const obj = new Lambdasian ({
+  name: 'Cassandra',
+  age: 30,
+  location: 'Tennessee'
+});
 
+obj.speak();
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -142,7 +154,7 @@ class Lambdasian {
 */
 
 class Instructor {
-
+  
 }
 
 /*
