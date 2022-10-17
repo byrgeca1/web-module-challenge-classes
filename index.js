@@ -44,8 +44,31 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood){
+    if (this.stomach.length <= 10){
+      this.stomach.push(someFood);
+    }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
 }
+const cassandra = new Person('Cassandra', 30);
+console.log(cassandra.toString());
+cassandra.eat('Fries');
+cassandra.eat('Cheeseburger');
+cassandra.eat('Milkshake');
+console.log(cassandra.stomach);
+cassandra.poop();
+console.log(cassandra.stomach);
 
 /*
   TASK 2
@@ -62,8 +85,29 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon; 
+    this.tank = 0;
+    this.odometer = 0
+  }
+  fill (gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive (miles){
+    const distance = this.tank * this.milesPerGallon;
+    if (miles <= dist){
+      this.odometer = this.odometer + miles;
+      this.tank = this.tank - (miles/this.milesPerGallon);
+    } else{
+      this.odometer = this.odometer + distance;
+      this.tank = 0;
+      return `I ran out of fwel at ${this.odometer} miles.`;
+    }
+  }
 }
+Car.fill();
+Car.drive();
 
 /*
   TASK 3
